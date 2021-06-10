@@ -32,6 +32,9 @@ def message_box(message):
 
 def mouse_movement():
     pyautogui.move(1, 0)
+    pyautogui.move(-1, 0)
+    pyautogui.move(0, 1)
+    pyautogui.move(0, -1)
 
 
 if __name__ == "__main__":
