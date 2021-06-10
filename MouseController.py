@@ -1,6 +1,6 @@
-from pynput.mouse import Controller
-import time
+import pyautogui
 import os
+import time
 
 
 def get_current_position():
@@ -17,13 +17,10 @@ def get_settings():
 
 
 def mouse_movement():
-    mouse = Controller()
-    mouse.move(1, 0)
+    pyautogui.dragRel(1, 0, duration=0)
 
 
 if __name__ == "__main__":
     while True:
         mouse_movement()
         time.sleep(get_settings())
-
-
