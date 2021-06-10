@@ -1,6 +1,8 @@
 import pyautogui
 import os
 import time
+import tkinter
+from tkinter import messagebox
 
 
 def get_current_position():
@@ -9,11 +11,23 @@ def get_current_position():
 
 
 def get_settings():
-    with open(get_current_position() + "\MoveSettings.txt") as config:
-        for line in config:
-            if "time" in line:
-                time_set = line.strip(" ").split("=")[1]
-                return int(time_set)
+    try:
+        with open(get_current_position() + "\MoveSettings.txt") as config:
+            for line in config:
+                if "time" in line:
+                    time_set = line.strip(" ").split("=")[1]
+                    return int(time_set)
+
+    except FileNotFoundError:
+        message = "The MouseSettings.txt file has to be in the same directory as the executable!"
+        message_box(message)
+        exit()
+
+
+def message_box(message):
+    root = tkinter.Tk()
+    root.withdraw()
+    messagebox.showerror(title="Error", message=message)
 
 
 def mouse_movement():
@@ -24,3 +38,4 @@ if __name__ == "__main__":
     while True:
         mouse_movement()
         time.sleep(get_settings())
+
