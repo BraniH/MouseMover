@@ -12,7 +12,7 @@ def get_current_position():
 
 def get_settings():
     try:
-        with open(get_current_position() + "\MoveSettings.txt") as config:
+        with open(get_current_position() + "\MouseSettings.txt") as config:
             for line in config:
                 if "time" in line:
                     time_set = line.strip(" ").split("=")[1]
