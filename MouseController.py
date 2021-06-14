@@ -40,5 +40,5 @@ def mouse_movement():
 if __name__ == "__main__":
     while True:
         mouse_movement()
-        time.sleep(get_settings())
+        time.sleep(15)
 
